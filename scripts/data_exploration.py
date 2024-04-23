@@ -55,6 +55,10 @@ def main():
     df = models.clean_df(df)
     cols = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
 
+    outcome_corr_plots(df)
+    feature_histogram(df, cols)
+    corr_pairplot(df)
+
     print("Overall Data")
     print(data_description(df),'\n')
 
@@ -65,9 +69,6 @@ def main():
     df_1 = df[df['Outcome'] == 1]
     print("Outcome = 1")
     print(data_description(df_1),'\n')
-
-    feature_histogram(df, cols)
-    corr_pairplot(df)
 
 
 
