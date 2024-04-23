@@ -15,7 +15,7 @@ Diseases. Things to note about the data: All individuals in the dataset are fema
   - `diabetes.csv`: Dataset containing the project data
 
 - **figures**
-  - `confusion_matrix_modelname.png`: Confusion matrix plot, each model has a plot saved in thius folder.
+  - `confusion_matrix_modelname.png`: Confusion matrix plot, each model has a plot saved in this folder.
   - `matrix_correlation.png`: Correlation matrix plot of data features + outcome variable
   - `outcome_correlation.png`: Correlation plot showing the relationship between the Outcome variable and features
   - `decision_tree.png`: Visualization of the decision tree model
