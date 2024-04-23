@@ -11,6 +11,8 @@ Diseases. Things to note about the data: All individuals in the dataset are fema
 
 ## Project Files
 
+**How to run project**: run `run.py` file
+
 - **data**
   - `diabetes.csv`: Dataset containing the project data
 
