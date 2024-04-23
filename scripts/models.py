@@ -92,7 +92,7 @@ def nb_model(X_train, X_test, y_train):
 
 # Model 4: Decision Tree
 def decisiontree(X_train, X_test, y_train):
-    model = DecisionTreeClassifier(criterion='entropy', max_depth=8)
+    model = DecisionTreeClassifier(criterion='entropy', max_depth=8, random_state=4)
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
 
