@@ -9,6 +9,22 @@ The primary aim of this project is to assess the accuracy of predictive models t
 **Data Source**: The data I will be using for this analysis is found on [Kaggle](https://www.kaggle.com/datasets/whenamancodes/predict-diabities/data). This dataset was originally from the National Institute of Diabetes and Digestive and Kidney
 Diseases. Things to note about the data: All individuals in the dataset are female, at least 21 years old and of Pima Indian Heritage.
 
+## Project Files
+
+- **data/**
+  - `diabetes.csv`: Dataset containing the project data
+
+- **figures/**
+  - `confusion_matrix_modelname.png`: Confusion matrix plot, each model has a plot saved in thius folder.
+  - `matrix_correlation.png`: Correlation matrix plot of data features + outcome variable
+  - `outcome_correlation.png`: Correlation plot showing the relationship between the Outcome variable and features
+  - `decision_tree.png`: Visualization of the decision tree model
+
+- **scripts/**
+  - `data_exploration.py`: Python script for exploring the dataset
+  - `models.py`: Python script for training and testing machine learning models and saving correlation plots in the figures folder
+  - `run.py`: Python script to execute data exploration and model training/testing scripts.
+
 ## Scope of Analysis
 
 * Data Exploration: Examination of feature distributions, correlation analyses, and statistical summaries.
