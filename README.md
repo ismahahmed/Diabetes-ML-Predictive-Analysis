@@ -64,12 +64,3 @@ Outcome variable and the different features in the dataset. We can see that Gluc
 * Naive Bayesian: Derived from the Bayes' probability theory. Accuracy: **77.71%**
 * Decision Tree: Utilizes information gain for feature selection. Prone to overfitting. Accuracy: **69.42%**
 * Support Vector Machine can be used for binary classification. I used 3 different kernels. Linear kernal accuracy: **80.89**, Gaussian accuracy: **77.70%** and Polynomial accuracy: **78.34%**
-
-
-
-
-
-
-
-
-
