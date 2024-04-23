@@ -11,16 +11,16 @@ Diseases. Things to note about the data: All individuals in the dataset are fema
 
 ## Project Files
 
-- **data/**
+- **data**
   - `diabetes.csv`: Dataset containing the project data
 
-- **figures/**
+- **figures**
   - `confusion_matrix_modelname.png`: Confusion matrix plot, each model has a plot saved in thius folder.
   - `matrix_correlation.png`: Correlation matrix plot of data features + outcome variable
   - `outcome_correlation.png`: Correlation plot showing the relationship between the Outcome variable and features
   - `decision_tree.png`: Visualization of the decision tree model
 
-- **scripts/**
+- **scripts**
   - `data_exploration.py`: Python script for exploring the dataset
   - `models.py`: Python script for training and testing machine learning models and saving correlation plots in the figures folder
   - `run.py`: Python script to execute data exploration and model training/testing scripts.
