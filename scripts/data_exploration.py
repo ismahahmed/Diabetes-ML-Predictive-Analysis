@@ -58,6 +58,7 @@ def main():
     outcome_corr_plots(df)
     feature_histogram(df, cols)
     corr_pairplot(df)
+    corr_plots(df)
 
     print("Overall Data")
     print(data_description(df),'\n')
