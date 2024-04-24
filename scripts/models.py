@@ -20,6 +20,9 @@ from scipy.spatial import distance
 
 # Cleaning data and returning panads df
 def clean_df(df):
+    '''
+    Given a pandas dataframe, function cleans data of missing values and returns cleaned dataframe
+    '''
     df['BloodPressure'].replace(0, pd.NA, inplace=True)
     df['Glucose'].replace(0, pd.NA, inplace=True)
     df['Insulin'].replace(0, pd.NA, inplace=True)
@@ -28,6 +31,9 @@ def clean_df(df):
     return(df)
 
 def get_training_test_sets(df, cols):
+    """
+    Given dataframe and set of features (cols), function returns a 60/40 split of training and testing sets
+    """
     y = df['Outcome']
     X = df[cols]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,random_state=4, stratify=y)
@@ -35,7 +41,8 @@ def get_training_test_sets(df, cols):
 
 def cm(y_test, y_pred, filename):
     '''
-    returns cm, TP, FN, FP, and TN
+    Given actual Y and predicted Y and filename, function returns CM, TP, FN, FP, and TN as well as
+    saved Confusion Matrix (cm) as png
     '''
     cm = confusion_matrix(y_test, y_pred, labels=[1, 0])
 
@@ -47,6 +54,9 @@ def cm(y_test, y_pred, filename):
 
 # Model 1: Knn
 def knn(X_train, y_train, X_test, k):
+    '''
+    training and testing knn model given k nearest neighbors
+    '''
     # scaling the features since we are using Euclidean distance
     scaler = StandardScaler()
     X_train_sc = scaler.fit_transform(X_train) # fit and scales
@@ -61,6 +71,9 @@ def knn(X_train, y_train, X_test, k):
     return(predictions)
 
 def get_best_k(X_train, y_train, X_test, y_test):
+    '''
+    Using grid search technique, return best k nearest neighbor
+    '''
     k_accuracy = {1:0, 2:0, 4:0, 8:0, 9:0, 10:0, 12:0}
 
     for k in [1, 2, 4, 8, 10, 9, 12]:
@@ -73,6 +86,9 @@ def get_best_k(X_train, y_train, X_test, y_test):
 
 # Model 2: Logistic Regression
 def logistic_regression(X_train, y_train, X_test):
+    '''
+    training and testing logistic regression model. returns predictions
+    '''
     scaler = StandardScaler()
     X_train_sc = scaler.fit_transform(X_train) # fit and scales. optional for log regression
     X_test_sc = scaler.transform(X_test) # do not re fit on test data
@@ -85,6 +101,9 @@ def logistic_regression(X_train, y_train, X_test):
 
 # Model 3: Naive Bayesian
 def nb_model(X_train, X_test, y_train):
+    '''
+    training and testing naive baysian model, returns predictions
+    '''
     model = GaussianNB() 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
@@ -92,6 +111,9 @@ def nb_model(X_train, X_test, y_train):
 
 # Model 4: Decision Tree
 def decisiontree(X_train, X_test, y_train):
+    '''
+    training and testing decision tree, returns predictions
+    '''
     model = DecisionTreeClassifier(criterion='entropy', max_depth=8, random_state=4)
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
@@ -102,15 +124,18 @@ def decisiontree(X_train, X_test, y_train):
     tree.plot_tree(model, feature_names= featurenames,class_names= class_name,filled=True) # https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html
     fig.savefig("figures/decision_tree.png")
 
-    return( y_pred)
+    return(y_pred)
 
 # Model 5: SVM
 def SVM(X_train, X_test, y_train, k):
+    '''
+    trainign testing SVM given kernel. returns predictions
+    '''
     scaler = StandardScaler()
     X_train_sc = scaler.fit_transform(X_train)
     X_test_sc = scaler.transform(X_test) 
 
-    if k == 'poly':
+    if k == 'poly': # if k is poly, perform polynomial kernel with degree 3
         svm_classifier = svm.SVC(kernel=k, degree=3)
     else:
         svm_classifier = svm.SVC(kernel= k)
