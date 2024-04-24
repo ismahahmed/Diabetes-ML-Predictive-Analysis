@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
@@ -14,9 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
-from scipy.spatial import distance
 
 # Cleaning data and returning panads df
 def clean_df(df):
