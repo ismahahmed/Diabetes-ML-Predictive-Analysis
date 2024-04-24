@@ -212,8 +212,17 @@ def main():
                  'Accuracy' : [knn_accuracy, log_reg_accuracy, nb_accuracy, dt_accuracy, svm_linear_accuracy, svm_rbf_accuracy, svm_poly_accuracy]
                  }
     
+    accuracy_dict = {'KNN (K=9)' : knn_accuracy, 
+                   'Logistic Regression' :log_reg_accuracy, 
+                   'Naive Bayesian': nb_accuracy, 
+                   'Decision Tree' : dt_accuracy, 
+                   'SVM (Linear)' : svm_linear_accuracy, 
+                   'SVM (Gaussian)' : svm_rbf_accuracy, 
+                   'SVM (Polynomial Degree 3)' : svm_poly_accuracy}
+    
     summary_df = pd.DataFrame(table_dict)
-    return(summary_df)
+
+    return(summary_df, accuracy_dict)
 
 if __name__ == "__main__":
     main()

@@ -16,6 +16,9 @@ def data_description(df):
     return(stats_df)
 
 def outcome_corr_plots(df):
+    '''
+    Correlation plot for the outcome variable vs features
+    '''
     plt.figure(figsize=(10,14))
     matrix = df.corr()
     outcome_corr = matrix[['Outcome']]
@@ -24,6 +27,9 @@ def outcome_corr_plots(df):
     plt.savefig(f'figures/outcome_correlation.png')
 
 def corr_plots(df):
+    '''
+    Correlation matrix including all features
+    '''
     plt.figure(figsize=(16,14))
     matrix = df.corr()
     corr_plot = sns.heatmap(matrix, cmap="Blues", annot= True)
@@ -31,6 +37,9 @@ def corr_plots(df):
     plt.savefig(f'figures/matrix_correlation.png')
 
 def feature_histogram(df, cols):
+    '''
+    Produced histogram of features
+    '''
     fig, axes = plt.subplots(nrows=2, ncols=4, figsize=(12, 8))
     axes = axes.flatten()
 
@@ -44,6 +53,9 @@ def feature_histogram(df, cols):
     plt.savefig(f'figures/feature-histogram.png')
 
 def corr_pairplot(df):
+    '''
+    Produces scatter plot
+    '''
     columns = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
     plt.figure(figsize=(16, 14))
     sns.pairplot(df[columns], hue='Outcome')
@@ -70,8 +82,6 @@ def main():
     df_1 = df[df['Outcome'] == 1]
     print("Outcome = 1")
     print(data_description(df_1),'\n')
-
-
 
 if __name__ == "__main__":
     main()
